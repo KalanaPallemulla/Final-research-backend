@@ -4,16 +4,16 @@ const router = require("express").Router();
 
 router.post(
   "/prediction/addPrediction",
-  checkVariables([
-    "result",
-    "age",
-    "hight",
-    "serumCalciumLevel",
-    "infantGastrationalAge",
-    "inadequateSunlightExposure",
-    "boneFractures",
-    "bowLegs",
-  ]),
+  // checkVariables([
+  //   "result",
+  //   "age",
+  //   "hight",
+  //   "serumCalciumLevel",
+  //   "infantGastrationalAge",
+  //   "inadequateSunlightExposure",
+  //   "boneFractures",
+  //   "bowLegs",
+  // ]),
   authentication,
   async (req, res) => {
     try {
