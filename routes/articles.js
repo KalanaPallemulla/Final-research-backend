@@ -8,7 +8,6 @@ const router = require("express").Router();
 router.post(
   "/article/addArticle",
   checkVariables(["topic", "body"]),
-  authentication,
   async (req, res) => {
     try {
       const { topic, body } = req.body;
@@ -27,6 +26,25 @@ router.post(
     }
   }
 );
+
+router.delete("/article/delete/:articleId", async (req, res) => {
+  try {
+    const articleId = req.params.articleId;
+
+    const deletedArticle = await Articles.findOneAndDelete({
+      _id: articleId,
+    });
+
+    if (!deletedArticle) {
+      return res.status(404).send("Article not found");
+    }
+
+    return res.status(200).send(deletedArticle);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send("Delete article server error");
+  }
+});
 
 router.get("/article/getArticles", async (req, res) => {
   try {

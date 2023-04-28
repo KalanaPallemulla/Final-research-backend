@@ -8,8 +8,36 @@ const predictionSchema = new schema(
       type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
-    predictionScore: {
+    result: {
       type: String,
+      required: true,
+    },
+    age: {
+      type: Number,
+      required: true,
+    },
+    hight: {
+      type: Number,
+      required: true,
+    },
+    serumCalciumLevel: {
+      type: Number,
+      required: true,
+    },
+    infantGastrationalAge: {
+      type: Boolean,
+      required: true,
+    },
+    inadequateSunlightExposure: {
+      type: Boolean,
+      required: true,
+    },
+    boneFractures: {
+      type: Boolean,
+      required: true,
+    },
+    bowLegs: {
+      type: Boolean,
       required: true,
     },
   },

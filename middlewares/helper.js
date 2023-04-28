@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const checkVariables = (requiredFields) => {
   return (req, res, next) => {
     const missingFields = [];
-    console.log(requiredFields);
 
     for (const field of requiredFields) {
       if (!req.body[field]) {

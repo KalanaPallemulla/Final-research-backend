@@ -4,16 +4,41 @@ const router = require("express").Router();
 
 router.post(
   "/prediction/addPrediction",
-  checkVariables(["predictionScore"]),
+  checkVariables([
+    "result",
+    "age",
+    "hight",
+    "serumCalciumLevel",
+    "infantGastrationalAge",
+    "inadequateSunlightExposure",
+    "boneFractures",
+    "bowLegs",
+  ]),
   authentication,
   async (req, res) => {
     try {
-      const { predictionScore } = req.body;
+      const {
+        result,
+        age,
+        hight,
+        serumCalciumLevel,
+        infantGastrationalAge,
+        inadequateSunlightExposure,
+        boneFractures,
+        bowLegs,
+      } = req.body;
       const userId = req.user;
 
       const prediction = new Prediction({
         userId,
-        predictionScore,
+        result,
+        age,
+        hight,
+        serumCalciumLevel,
+        infantGastrationalAge,
+        inadequateSunlightExposure,
+        boneFractures,
+        bowLegs,
       });
 
       const response = await prediction.save();

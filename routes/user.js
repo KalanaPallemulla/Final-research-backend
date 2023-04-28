@@ -85,4 +85,16 @@ router.get("/user/:id", async (req, res) => {
   }
 });
 
+router.get("/users", async (req, res) => {
+  try {
+    const users = await User.find().select("-password");
+    if (!users) {
+      return res.status(404).send("Users not found");
+    }
+    return res.send(200, users);
+  } catch (error) {
+    return res.status(500).send("Users get error: " + error);
+  }
+});
+
 module.exports = router;

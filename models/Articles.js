@@ -13,10 +13,6 @@ const articlesSchema = new schema(
       require: true,
     },
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      require: true,
-    },
   },
 
   { timestamps: true }
